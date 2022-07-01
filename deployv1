@@ -1,0 +1,22 @@
+    - name: Deploy Function
+      id: sls-func
+      uses: yc-actions/yc-sls-function@v2
+      with:
+        yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
+        bucket: ${{ secrets.BUCKET }}
+        folder-id: 'b1g5011a55kob4gktkop'
+        function-name: 'test-function'
+        runtime: 'nodejs16'
+        memory: '256Mb'
+        entrypoint: 'src/main.handler'
+        environment: | 
+          DEBUG=True
+          COUNT=1
+        include: | 
+          ./src
+          package.json
+        exclude: | 
+          **/*.ts
+        tags: |
+          ${{ GITHUB_SHA::6 }}
+          foo
