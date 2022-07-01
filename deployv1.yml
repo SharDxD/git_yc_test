@@ -5,8 +5,8 @@
         yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
         bucket: ${{ secrets.BUCKET }}
         folder-id: 'b1g5011a55kob4gktkop'
-        function-name: 'test-function'
-        runtime: 'nodejs16'
+        function-name: 'testfunc'
+        runtime: 'python-3.10.5'
         memory: '256Mb'
         entrypoint: 'src/main.handler'
         environment: | 
